@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Ideas | Career Compass</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.search-box{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    margin-bottom:30px;
+    font-size:16px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.project-card{
+    background:rgba(255,255,255,0.08);
+    padding:20px;
+    border-radius:15px;
+    backdrop-filter:blur(12px);
+    transition:.3s;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+}
+
+.level{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:20px;
+    background:#38bdf8;
+    margin-top:10px;
+    font-size:14px;
+}
+
+.back-btn{
+    display:inline-block;
+    margin-top:30px;
+    text-decoration:none;
+    background:#38bdf8;
+    color:#fff;
+    padding:12px 24px;
+    border-radius:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h2>Career Compass</h2>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="roadmap.html">Roadmap</a>
+<a href="timetable.html">Timetable</a>
+</nav>
+
+</header>
+
+<div class="container">
+
+<div class="title">
+<h1>💡 Project Ideas</h1>
+<p>Build real-world projects and strengthen your portfolio.</p>
+</div>
+
+<input
+type="text"
+class="search-box"
+id="search"
+placeholder="Search Project..."
+onkeyup="searchProject()">
+
+<div class="grid" id="projects">
+
+<div class="project-card">
+<h3>Calculator</h3>
+<p>Learn HTML, CSS & JavaScript basics.</p>
+<span class="level">Beginner</span>
+</div>
+
+<div class="project-card">
+<h3>To-Do App</h3>
+<p>CRUD operations using JavaScript.</p>
+<span class="level">Beginner</span>
+</div>
+
+<div class="project-card">
+<h3>Weather App</h3>
+<p>Fetch live weather using API.</p>
+<span class="level">Intermediate</span>
+</div>
+
+<div class="project-card">
+<h3>Student Management System</h3>
+<p>Manage student records using JavaScript.</p>
+<span class="level">Intermediate</span>
+</div>
+
+<div class="project-card">
+<h3>E-Commerce Website</h3>
+<p>Shopping cart, checkout and product pages.</p>
+<span class="level">Advanced</span>
+</div>
+
+<div class="project-card">
+<h3>AI Chatbot</h3>
+<p>Create an intelligent chatbot using AI APIs.</p>
+<span class="level">Advanced</span>
+</div>
+
+<div class="project-card">
+<h3>Expense Tracker</h3>
+<p>Track income, expenses and savings.</p>
+<span class="level">Intermediate</span>
+</div>
+
+<div class="project-card">
+<h3>Portfolio Website</h3>
+<p>Create your professional portfolio.</p>
+<span class="level">Beginner</span>
+</div>
+
+</div>
+
+<a href="index.html" class="back-btn">⬅ Back</a>
+
+</div>
+
+<script>
+function searchProject(){
+
+let input=document.getElementById("search").value.toLowerCase();
+
+let cards=document.getElementsByClassName("project-card");
+
+for(let i=0;i<cards.length;i++){
+
+let text=cards[i].innerText.toLowerCase();
+
+if(text.includes(input)){
+cards[i].style.display="block";
+}else{
+cards[i].style.display="none";
+}
+
+}
+
+}
+</script>
+
+</body>
+</html>
