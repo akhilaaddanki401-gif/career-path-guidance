@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Quiz | Career Compass</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+.container{
+    max-width:800px;
+    margin:40px auto;
+    padding:20px;
+}
+
+.quiz-card{
+    background:rgba(255,255,255,.08);
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+.quiz-card h3{
+    margin-bottom:15px;
+}
+
+label{
+    display:block;
+    margin:10px 0;
+    cursor:pointer;
+}
+
+button{
+    margin-top:20px;
+}
+
+#result{
+    margin-top:30px;
+    padding:20px;
+    border-radius:12px;
+    background:rgba(56,189,248,.15);
+    display:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>🎓 Career Compass</h2>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="roadmap.html">Roadmap</a>
+<a href="projects.html">Projects</a>
+<a href="timetable.html">Timetable</a>
+</nav>
+
+</header>
+
+<div class="container">
+
+<h1 align="center">🧠 Career Recommendation Quiz</h1>
+
+<div class="quiz-card">
+
+<h3>1. Which activity do you enjoy the most?</h3>
+
+<label><input type="radio" name="q1" value="Software Engineer"> Coding</label>
+
+<label><input type="radio" name="q1" value="AI / ML Engineer"> Solving AI Problems</label>
+
+<label><input type="radio" name="q1" value="Web Developer"> Designing Websites</label>
+
+<label><input type="radio" name="q1" value="Cyber Security"> Finding Security Bugs</label>
+
+</div>
+
+<button onclick="showResult()">Get Recommendation</button>
+
+<div id="result">
+<h2 id="careerResult"></h2>
+<p>Your recommended career has been selected based on your answer.</p>
+<a href="roadmap.html">
+<button>View Roadmap</button>
+</a>
+</div>
+
+</div>
+
+<script>
+function showResult(){
+
+let answer=document.querySelector('input[name="q1"]:checked');
+
+if(!answer){
+alert("Please select an option.");
+return;
+}
+
+localStorage.setItem("career",answer.value);
+
+document.getElementById("careerResult").innerHTML=
+"🎯 Recommended Career: "+answer.value;
+
+document.getElementById("result").style.display="block";
+
+}
+</script>
+
+</body>
+</html>
