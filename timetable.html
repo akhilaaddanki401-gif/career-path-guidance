@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Timetable | Career Compass</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+.container{
+    max-width:1000px;
+    margin:40px auto;
+    padding:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th,td{
+    padding:15px;
+    border:1px solid rgba(255,255,255,.2);
+    text-align:center;
+}
+
+th{
+    background:#38bdf8;
+}
+
+tr:nth-child(even){
+    background:rgba(255,255,255,.05);
+}
+
+.checklist{
+    margin-top:40px;
+    background:rgba(255,255,255,.08);
+    padding:20px;
+    border-radius:15px;
+}
+
+.checklist label{
+    display:block;
+    margin:12px 0;
+    font-size:18px;
+}
+
+.timer{
+    text-align:center;
+    margin-top:40px;
+}
+
+#time{
+    font-size:55px;
+    margin:20px;
+    color:#38bdf8;
+}
+
+button{
+    margin:8px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<h2>Career Compass</h2>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="roadmap.html">Roadmap</a>
+<a href="projects.html">Projects</a>
+</nav>
+
+</header>
+
+<div class="container">
+
+<h1 align="center">📅 Daily Study Timetable</h1>
+
+<table>
+
+<tr>
+<th>Time</th>
+<th>Activity</th>
+</tr>
+
+<tr><td>6:00 AM</td><td>Wake Up</td></tr>
+<tr><td>6:30 AM</td><td>Exercise</td></tr>
+<tr><td>7:00 AM</td><td>Programming Practice</td></tr>
+<tr><td>9:00 AM</td><td>College / Classes</td></tr>
+<tr><td>5:00 PM</td><td>Learn New Skill</td></tr>
+<tr><td>6:30 PM</td><td>Project Building</td></tr>
+<tr><td>8:00 PM</td><td>Aptitude Practice</td></tr>
+<tr><td>9:00 PM</td><td>Revision</td></tr>
+
+</table>
+
+<div class="checklist">
+
+<h2>✅ Today's Checklist</h2>
+
+<label><input type="checkbox"> Learn one new concept</label>
+<label><input type="checkbox"> Solve 5 coding problems</label>
+<label><input type="checkbox"> Work on project for 1 hour</label>
+<label><input type="checkbox"> Read technical article</label>
+<label><input type="checkbox"> Revise yesterday's topics</label>
+
+</div>
+
+<div class="timer">
+
+<h2>⏱ Pomodoro Timer</h2>
+
+<div id="time">25:00</div>
+
+<button onclick="startTimer()">Start</button>
+
+<button onclick="resetTimer()">Reset</button>
+
+</div>
+
+</div>
+
+<script>
+
+let seconds=1500;
+let timer;
+
+function update(){
+let min=Math.floor(seconds/60);
+let sec=seconds%60;
+
+document.getElementById("time").innerHTML=
+String(min).padStart(2,"0")+":"+
+String(sec).padStart(2,"0");
+}
+
+function startTimer(){
+
+clearInterval(timer);
+
+timer=setInterval(()=>{
+
+if(seconds>0){
+
+seconds--;
+update();
+
+}else{
+
+clearInterval(timer);
+alert("Pomodoro Completed 🎉");
+
+}
+
+},1000);
+
+}
+
+function resetTimer(){
+
+clearInterval(timer);
+
+seconds=1500;
+
+update();
+
+}
+
+update();
+
+</script>
+
+</body>
+</html>
